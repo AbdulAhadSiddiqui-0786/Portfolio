@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .profile-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-dark {
+            background-color: #1a202c;
+            color: white;
+        }
+        
+        .theme-dark .bg-blue-900 {
+            background-color: #1a202c;
+            color: white;
+        }
+    
+        .theme-dark #skills {
+            background-color: #1a202c; /* dark gray background for dark mode */
+            color: white; /* white text color for dark mode */
+        }
+    
+        .theme-dark .skills-card {
+            background-color: #ffff; /* dark blue background for skills card in dark mode */
+            color: black; /* white text color for dark mode */
+        }
+    
+        /* General styles for the section */
+        #skills {
+            background-color: #f7fafc; /* light gray background */
+            color: black; /* black text color for light mode */
+        }
+    
+        /* Styles for the skills card */
+        .skills-card {
+            background-color: #ffffff; /* white background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+            border-radius: 0.5rem; 
+            padding: 2rem; /* padding inside the card */
+            max-width: 800px; /* maximum width of the card */
+        }
+    
+        /* Initialize the progress bar width to 0 */
+        .progress-bar {
+            width: 0;
+            animation: fillProgress 5s infinite;
+        }
+    
+        /* Keyframes to animate the progress bar */
+        @keyframes fillProgress {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: var(--progress-width);
+            }
+            100% {
+                width: var(--progress-width);
+            }
+        }
+    
+        /* Define the width for each progress bar */
+        .progress-bar[data-width="80%"] {
+            --progress-width: 80%;
+        }
+    
+        .progress-bar[data-width="70%"] {
+            --progress-width: 70%;
+        }
+    
+        .progress-bar[data-width="60%"] {
+            --progress-width: 60%;
+        }
+
+        .certification-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certification-card:hover {
+        transform: translateY(-10px) scale(1.05); /* Move card up slightly and scale it */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+        scroll-behavior:auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-orange-600 text-white p-4 ">
+        <div class="container mx-auto flex justify-between items-center ">
+            <div class="flex items-center justify-center">
+                <img class="rounded-full size-16 " src="logo.png" alt="logo">
+                <h1 class="pl-[20px]">AB Portfolio</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4 md:flex-row flex-col">
+                    <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                    <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+                    <li><a href="#certifications" class="hover:text-gray-300 ">Certifications</a></li>
+                    <li><a href="#projects" class="hover:text-gray-300 ">Projects</a></li>
+                    <li><a href="#Services" class="hover:text-gray-300 ">Services</a></li>
+                    <li><a href="#contact" class="hover:text-gray-300 ">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle bg-gray-700 p-2 rounded-md text-white hover:bg-gray-600" onclick="toggleTheme()">🌙</button>
+
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="text-center py-16">
+        <h1 class="text-4 xl font-bold mb-4">Welcome to My Portfolio</h1>
+        <p class="text-lg mb-8">Hi, I'm Abdul Ahad Siddiqui, a passionate web developer.</p>
+        <img src="profile.png" alt="Profile Image" class="profile-image w-40 h-40 rounded-full mx-auto mb-8">
+        <div class="flex justify-center items-center p-4 space-x-4 mb-8">
+            <a href="https://x.com/AbdulAh70506989" target="_blank" class="text-blue-500 hover:text-blue-700"><img src="xicon.svg" alt="twitter profile">Twitter</a>
+            <a href="https://www.linkedin.com/in/abdul-ahad-siddiqui-27636b1b7" target="_blank" class="text-blue-700 hover:text-blue-900"><img src="linkedinicon.svg" alt="linkedin profile">LinkedIn</a>
+            <a href="https://github.com/AbdulAhadSiddiqui-0786" target="_blank" class="text-orange-500 hover:text-gray-700"><img src="githubicon.svg" alt="github profile">GitHub</a>
+            <a href="https://www.instagram.com/abdul.ahad00786/" target="_blank" class="text-pink-600 hover:text-pink-800"><img src="instagramicon.svg" alt="instagram profile">Instagram</a>
+        </div>
+        <a href="https://drive.google.com/uc?export=download&id=1MukqWv0jHEkWOPHz8oNtcxxsFep4UOpu" class="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-500" download>Download Resume</a>
+    </section>
+    <!-- About Section -->
+    <section id="about" class=" flex py-16 flex-col  min-h-screen">
+        <h2 class="text-3xl font-semibold mb-4 text-center">About Me</h2>
+        <p class=" mx-auto px-4 text-lg text-justify justify-center items-center mb-20  ">I'm a dedicated web developer with experience in full-stack development.
+            <br>I enjoy creating web applications that are both functional and visually appealing.</p>
+        <div class="text-center">
+            <button class="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-500"><a href="#justbelow">Read More</a></button>
+            <p id="justbelow">I want to become a Computer Scientist.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 min-h-screen bg-gray-100">
+        <div class="skills-card bg-white shadow-md rounded-lg p-8 mx-auto">
+            <h2 class="text-3xl font-semibold mb-4 text-center">Skills</h2>
+            <div class="md:max-w-lg max-w-screen-sm mx-auto">
+                <div class="mb-4">
+                    <span class="block mb-1">HTML/CSS</span>
+                    <div class="progress-container bg-gray-200 rounded-full overflow-hidden">
+                        <div class="progress-bar bg-orange-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" data-width="80%">80%</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="block mb-1">JavaScript</span>
+                    <div class="progress-container bg-gray-200 rounded-full">
+                        <div class="progress-bar bg-orange-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none rounded-full" data-width="70%">70%</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="block mb-1">Data Structure</span>
+                    <div class="progress-container bg-gray-200 rounded-full">
+                        <div class="progress-bar bg-orange-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none rounded-full" data-width="60%">60%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-16 min-h-screen flex flex-col items-center justify-center p-">
+        <h2 class="text-3xl font-semibold mb-4 text-center">Certifications</h2>
+        <div class="grid grid-cols-1 md:flex  lg:flex flex-row gap-4 justify-center">
+            <!-- Card 1 -->
+            <div class="certification-card shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2">Introduction to Python</h3>
+                <p class="from-orange-200">This certificate I completed during my first year in college, taught by an IBM trainer.</p>
+                <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/5537ea7b4d724fa286f81f3947e5a11b" class="text-white hover:bg-orange-500" target="_blank">
+                    <img src="Python.jpg" alt="Python Certificate" class="w-full h-48  rounded-lg mb-4 border border-black">
+                    <button> View Certificate</button>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="certification-card shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2">Java Programming in Hindi</h3>
+                <p class="from-orange-200">This certificate I completed during my first year in college, taught by an IBM trainer.</p>
+                <a href="https://www.mygreatlearning.com/certificate/WCBQJRVC" class="text-white hover:bg-orange-500" target="_blank">
+                    <img src="java.jpeg" alt="Java Certificate" class="w-full h-48  rounded-lg mb-4 border border-black">
+                    <button> View Certificate</button>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="certification-card shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2">Data Science 101</h3>
+                <p class="from-orange-200">This certificate I completed during my first year in college, taught by an IBM trainer.</p>
+                <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/b10624f3f6b948d18754ecf9a6dd1184" class="text-white hover:bg-orange-500" target="_blank">
+                    <img src="DataScience.jpg" alt="Data Science Certificate" class="w-full h-48  rounded-lg mb-4 border border-black">
+                    <button> View Certificate</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 min-h-screen ">
+        <h2 class="text-3xl font-semibold mb-4 text-center">Projects</h2>
+        <div class=" flex flex-wrap justify-center gap-y-16 ">
+            <!-- Project 1 -->
+            <div class="certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2 text-center underline">OBJECT DETECTION</h3>
+                <p>An object detection project creates a system to identify and classify objects in images or video using machine learning models like CNNs. It involves training on labeled data, tuning for accuracy, and deploying the model for real-time
+                    detection.
+
+                </p>
+                <img class="w-full h-48  rounded-lg mb-4 border border-black" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9k4XUHjxO-642niNbMkwsqKYHTAhr2khtV6N9HvCnzJffQx6Jl5h1iX_ynLHmqeWS_BQ&usqp=CAU" alt="Object Detection">
+
+            </div>
+            <!-- Project 2 -->
+            <div class=" certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="  text-xl font-semibold mb-2 underline">2D CAR RACING GAME</h3>
+                <p>A 2D car racing game developed with Pygame, featuring simple controls, dynamic obstacles, and a competitive racing track, providing an engaging and interactive gaming experience.</p>
+                <img class="mt-3 object-cover w-full h-[210px]  rounded-lg mb-4 border border-black" src="data:image/jpeg;base64,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"
+                alt="2D Car Racing">
+            </div>
+            <!-- Project 3 -->
+            <div class="certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2 underline">2D PLATFORMER GAME</h3>
+                <p>A 2D platformer game developed in Java using Swing and JFrame, featuring classic gameplay similar to Mario with engaging levels, platforming challenges, and interactive game assets.</p>
+                <img class="mt-3 object-cover w-full h-[210px]  rounded-lg mb-4 border border-black" src="https://img.itch.zone/aW1nLzQyMDM2NDguZ2lm/original/tn%2FjVO.gif" alt="2D Platformer Game">
+            </div>
+            <!-- Project 4 -->
+            <div class="certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2 underline">YTV DOWNLOADER</h3>
+                <p>YTV Downloader, created with Pytube and Tkinter, allows users to download YouTube videos in various qualities, from 144p to 1080p, with a user-friendly GUI.</p>
+                <img class="mt-3 object-cover w-full h-[220px]  rounded-lg mb-4 border border-black" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw7-qsZeqNYYXeKzt9XcmTl2ing9ki1pyXIg&s" alt="Ytv Downloader">
+            </div>
+            <!-- Project 5 -->
+            <div class="certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2 underline">E-SHOP</h3>
+                <p>E-SHOP is an online commerce website built with Django, enabling users to browse, select, and purchase goods seamlessly, with a secure shopping experience.</p>
+                <img class="mt-3 object-cover w-full h-[210px]  rounded-lg mb-4 border border-black" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*iAu65xDmvpVdBJgps6EDEw.png" alt="E shop">
+            </div>
+            <!-- Project 6 -->
+            <div class="certification-card w-full md:w-1/3 shadow-md rounded-lg p-4 bg-orange-600 text-white text-center">
+                <h3 class="text-xl font-semibold mb-2 underline">FILE ORGANISER</h3>
+                <p>It is a Python tool that categorizes and moves PDF and DOC files from various sources into specified directories, streamlining file management and organization.</p>
+                <img class="mt-3  w-full h-[210px]  rounded-lg mb-4 border border-black" src="https://i.ytimg.com/vi/BgLVNSyK0HY/maxresdefault.jpg" alt="File organizer">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 min-h-screen">
+        <h2 class="text-3xl font-semibold mb-4 text-center">Contact Me</h2>
+        <form class="max-w-lg mx-auto  p-8 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium">Name:</label>
+                <input type="text" placeholder="Name" id="name" name="name" class="h-8 mt-1 block w-full border px-2 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" class="h-8 mt-1 block w-full border px-2 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-sm font-medium">Message:</label>
+                <textarea id="message" name="message" rows="5" class="mt-1 block w-full border-gray-300 rounded-md  border px-2 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-500">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-600 text-white py-4">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <div class="sm:mb-0">
+                &copy; 2024 All rights Reserved!
+            </div>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                <button class="px-4 py-2 bg-orange-600 rounded hover:bg-orange-500">Call us</button>
+                <button class="px-4 py-2 bg-orange-600 rounded hover:bg-orange-500">Mail us</button>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript To handle theme toggle -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+        }
+    </script>
+</body>
+</html>
